@@ -1,52 +1,102 @@
 import { useNavigation, useTheme } from "@react-navigation/native";
-import React, { useContext, useEffect} from "react";
-import { View, StyleSheet, Text } from "react-native";
+import React, { useState, useEffect } from "react"; // Import useState
+import { View, StyleSheet, Text, Image, TouchableOpacity } from "react-native";
 import { useDispatch } from "react-redux";
-import { LocalizationContext } from "../../localization/localization";
 import { setAuth } from "../../redux/Reducers/userData";
 import AppRoutes from "../../routes/RouteKeys/appRoutes";
-import SolidBtn from "../components/SolidBtn";
-import SolidView from "../components/SolidView";
-import AppUtils from "../../utils/appUtils";
+import { hp, wp } from "../../utils/dimension";
+import LinearGradient from "react-native-linear-gradient";
+import ImageCarousel from '../components/ImageCarousel';
 
 const Welcome: React.FC = () => {
-  const { colors } = useTheme();
-  const { localization } = useContext(LocalizationContext);
   const dispatch = useDispatch();
   const navigation: any = useNavigation();
+  const [currentCarouselIndex, setCurrentCarouselIndex] = useState(0);
 
+  const irctcLogoSource = currentCarouselIndex % 2 === 0
+    ? require('../../assets/logo-white.png') 
+    : require('../../assets/logo-dark.png'); 
   return (
-    <SolidView
-      view={
-        <View style={{ flex: 1, justifyContent: "center" }}>
-          <Text
-            style={[style.titleText, { color: colors.text }]}
-          >
-            {localization.appkeys.welcome_solid}
-          </Text>
-          <SolidBtn
-            onPress={() => {
-             dispatch(setAuth(true));
-              navigation.navigate(AppRoutes.NonAuthStack);
-            }}
-            titleTxt={localization.appkeys.go_home}
-          />
-        </View>
-      }
-    />
+    <View style={style.parent}>
+      <View style={style.bgContainer}>
+        <ImageCarousel onIndexChange={setCurrentCarouselIndex} /> 
+        <LinearGradient
+          colors={['transparent', '#000000']}
+          style={style.gradientOverlay}
+        />
+        <Image source={irctcLogoSource} style={style.irctcLogo} /> 
+      </View>
+      <View style={style.contentContainer}>
+        <Text style={style.titleText}>Next Generation eTicketing System</Text>
+        <Text style={style.subText}>Now with improved user experience</Text>
+        <TouchableOpacity style={style.loginButton} onPress={() => dispatch(setAuth(true))}>
+          <Text style={style.loginText}>Log in with IRCTC account</Text>
+        </TouchableOpacity>
+        <Text style={style.subText}>Don’t have an account yet? <Text style={{ color: 'white', textDecorationLine: 'underline' }}>Sign up</Text></Text>
+      </View>
+    </View>
   );
 }
 
 const style = StyleSheet.create({
   parent: {
     flex: 1,
-    justifyContent: "center",
+    backgroundColor: '#000',
+  },
+  bgContainer: {
+    flex: 2,
+    width: '100%',
+    position: 'relative', 
+  },
+  gradientOverlay: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    height: '40%',
+  },
+  irctcLogo: {
+    position: 'absolute',
+    top: hp(7),
+    alignSelf: 'center', 
+    width: wp(15),
+    height: hp(7),
+    resizeMode: 'contain', 
+    zIndex: 1, 
+  },
+  contentContainer: {
+    flex: 1,
+    alignItems: 'center',
+    paddingHorizontal: wp(5),
   },
   titleText: {
-    fontSize: 20,
+    color: 'white',
+    fontSize: wp(9),
     alignSelf: "center",
     textAlign: "center",
-    lineHeight: 25,
+    lineHeight:hp(5),
+    fontFamily: 'Lato-Medium',
+  },
+  subText: {
+    fontFamily: 'Lato-Regular',
+    fontSize: wp(4),
+    color: '#ADADAD',
+    marginVertical: hp(1.3),
+  },
+  loginButton: {
+    width: wp(80),
+    height: hp(7),
+    backgroundColor: '#2475EE',
+    justifyContent: 'center',
+    borderRadius: 14,
+    paddingVertical: hp(1.3),
+    marginVertical: hp(0.6),
+  },
+  loginText: {
+    fontFamily: 'Lato-Bold',
+    color: '#fff',
+    fontSize: wp(4),
+    alignSelf: 'center',
   },
 });
 export default Welcome;

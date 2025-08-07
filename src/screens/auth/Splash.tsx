@@ -6,7 +6,7 @@ import AppRoutes from "../../routes/RouteKeys/appRoutes";
 
 const Splash: React.FC = () => {
   const auth = useSelector((state: any) => state.userData.auth);
-  const { colors, images } = useTheme();
+  const logo = require('../../assets/logo.png');
   const navigation: any = useNavigation();
 
   useEffect(() => {
@@ -14,12 +14,13 @@ const Splash: React.FC = () => {
       auth
         ? navigation.replace(AppRoutes.NonAuthStack)
         : navigation.replace(AppRoutes.Welcome);
+        console.log(auth);
     }, 3000);
   }, []);
 
   return (
-    <View style={[style.parent, { backgroundColor: colors.background }]}>
-      <Image source={images.logo} style={style.image} />
+    <View style={[style.parent, { backgroundColor:"black"}]}>
+      <Image source={logo} style={style.image} />
     </View>
   );
 }
@@ -29,7 +30,8 @@ const style = StyleSheet.create({
     justifyContent: "center",
   },
   image: {
-    width: "80%",
+    height:150,
+    width:150,
     resizeMode: "contain",
     alignSelf: "center",
   },

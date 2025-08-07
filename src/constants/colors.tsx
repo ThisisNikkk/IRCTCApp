@@ -19,7 +19,7 @@ const DarkTheme = {
     text: "white",
   },
   images: {
-    logo: require("../assets/logodark.jpg"),
+    logo: require("../assets/logo-dark.png"),
   },
 };
 export { LightTheme, DarkTheme };
