@@ -4,6 +4,7 @@ import Splash from "../../screens/auth/Splash";
 import Welcome from "../../screens/auth/Welcome";
 import AppRoutes from "../RouteKeys/appRoutes";
 import SignUp from "../../screens/auth/SignUp";
+import Login from "../../screens/auth/Login";
 
 export default function AuthStack() {
   const Stack = createNativeStackNavigator();
@@ -12,6 +13,7 @@ export default function AuthStack() {
       <Stack.Screen name={AppRoutes.Splash} component={Splash} />
       <Stack.Screen name={AppRoutes.Welcome} component={Welcome} />
       <Stack.Screen name={AppRoutes.SignUp} component={SignUp} />
+      <Stack.Screen name={AppRoutes.Login} component={Login} />
     </Stack.Navigator>
   );
 }

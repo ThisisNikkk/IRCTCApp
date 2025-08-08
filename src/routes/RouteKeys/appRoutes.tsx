@@ -4,6 +4,7 @@ const AppRoutes = {
     Splash:"Splash",
     Welcome:"Welcome",
     SignUp:"SignUp",
+    Login:"Login",
     Home:"Home"
 }
 

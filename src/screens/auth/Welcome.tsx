@@ -2,7 +2,6 @@ import { useNavigation} from "@react-navigation/native";
 import React, { useState} from "react"; 
 import { View, StyleSheet, Text, Image, TouchableOpacity } from "react-native";
 import { useDispatch } from "react-redux";
-import { setAuth } from "../../redux/Reducers/userData";
 import AppRoutes from "../../routes/RouteKeys/appRoutes";
 import { hp, wp } from "../../utils/dimension";
 import LinearGradient from "react-native-linear-gradient";
@@ -29,7 +28,7 @@ const Welcome: React.FC = () => {
       <View style={style.contentContainer}>
         <Text style={style.titleText}>Next Generation eTicketing System</Text>
         <Text style={style.subText}>Now with improved user experience</Text>
-        <TouchableOpacity style={style.loginButton} onPress={() => dispatch(setAuth(true))}>
+        <TouchableOpacity style={style.loginButton} onPress={() => navigation.navigate(AppRoutes.Login)}>
           <Text style={style.loginText}>Log in with IRCTC account</Text>
         </TouchableOpacity>
         <Text style={style.subText}>Don’t have an account yet? <Text style={{ color: 'white', textDecorationLine: 'underline' }} onPress={()=> navigation.navigate(AppRoutes.SignUp)}>Sign up</Text></Text>
