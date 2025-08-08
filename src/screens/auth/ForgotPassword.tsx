@@ -6,19 +6,47 @@ import AppRoutes from '../../routes/RouteKeys/appRoutes';
 import { useDispatch } from 'react-redux';
 import { setAuth } from '../../redux/Reducers/userData';
 
-interface LoginProps {
+interface ForgotPasswordProps {
     navigation: any,
 }
 
-const Login: React.FC<LoginProps> = ({ navigation }) => {
+const ForgotPassword: React.FC<ForgotPasswordProps> = ({ navigation }) => {
     const dispatch = useDispatch();
     const image = require('../../assets/Vector.png');
     const bg = require('../../assets/Subtract.png');
     const googlelogo = require('../../assets/google.png')
     const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
+    const [successMessage, setSuccessMessage] = useState("");
+    const [password, setPassword] = useState(""); // <-- Suggestion 3: Success state
     const [loading, setLoading] = useState(false);
+
+
+    const handlePasswordReset = async () => {
+        setErrorMessage("");
+        setSuccessMessage("");
+        if (!email.trim()) {
+            setErrorMessage("Please enter your email address.");
+            return;
+        }
+
+        setLoading(true);
+        try {
+            // await auth().sendPasswordResetEmail(email);
+            setSuccessMessage("Password reset link sent! Please check your email inbox (and spam folder).");
+        } catch (error: any) {
+            if (error.code === "auth/user-not-found") {
+                setErrorMessage("No user found with that email address.");
+            } else if (error.code === "auth/invalid-email") {
+                setErrorMessage("That email address is invalid!");
+            } else {
+                console.error(error);
+                setErrorMessage("Something went wrong. Please try again.");
+            }
+        } finally {
+            setLoading(false);
+        }
+    };
 
     return (
         <SafeAreaProvider>
@@ -31,15 +59,18 @@ const Login: React.FC<LoginProps> = ({ navigation }) => {
                 <View style={styles.contentContainer}>
                     <ImageBackground source={bg} style={styles.loginFormBackground} >
                         <Text style={styles.title}>
-                            <Text style={styles.titleBold}>Welcome to IRCTC{'\n'} </Text>
-                            <Text style={styles.titleNormal}>Next Generation eTicketing System</Text>
+                            <Text style={styles.titleBold}>Forgot Your Password ?{'\n'} </Text>
+                            <Text style={styles.titleNormal}>  No worries, we'll help you.</Text>
                         </Text>
                         <View style={styles.loginFormContent}>
                             {errorMessage ? (
                                 <Text style={styles.errorText}>{errorMessage}</Text>
                             ) : null}
+                            {successMessage ? (
+                                <Text style={styles.successText}>{successMessage}</Text>
+                            ) : null}
                             <TextInput
-                                placeholder="Email"
+                                placeholder="Enter Your Regitered Email"
                                 placeholderTextColor="#fff"
                                 style={styles.input}
                                 value={email}
@@ -49,9 +80,8 @@ const Login: React.FC<LoginProps> = ({ navigation }) => {
                                 editable={!loading}
                             />
                             <TextInput
-                                placeholder="Password"
+                                placeholder="Confirm Your Email"
                                 placeholderTextColor="#fff"
-                                secureTextEntry
                                 style={styles.input}
                                 value={password}
                                 onChangeText={setPassword}
@@ -60,12 +90,12 @@ const Login: React.FC<LoginProps> = ({ navigation }) => {
                             <View style={styles.buttonContainer}>
                                 <Pressable
                                     style={styles.loginButton}
-                                    onPress={() => dispatch(setAuth(true))}
+                                    onPress={handlePasswordReset}
                                 >
                                     {loading ? (
                                         <ActivityIndicator color="#fff" />
                                     ) : (
-                                        <Text style={styles.loginButtonText}>Login</Text>
+                                        <Text style={styles.loginButtonText}>Send Reset Link</Text>
                                     )}
                                 </Pressable>
                             </View>
@@ -74,16 +104,8 @@ const Login: React.FC<LoginProps> = ({ navigation }) => {
                                     style={styles.BackButton}
                                     onPress={() => navigation.goBack()}
                                 >
-                                    <Image source={googlelogo} style={styles.googleLogo} />
-                                    <Text style={styles.BackButtonText}>Continue With Google</Text>
+                                    <Text style={styles.BackButtonText}>Go Back</Text>
                                 </Pressable>
-                            </View>
-                            <View style={styles.forgotPassContainer}>
-                                <TouchableOpacity
-                                    onPress={() => navigation.navigate(AppRoutes.ForgotPassword)}
-                                >
-                                    <Text style={styles.forgotPassText}>Forgot Password? <Text style={{ textDecorationLine: 'underline' }}>Click Here</Text></Text>
-                                </TouchableOpacity>
                             </View>
                             <View style={styles.copyrightContainer}>
                                 <Text style={styles.copyrightText}>Copyright © Nikhil Siwan.</Text>
@@ -117,7 +139,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        paddingHorizontal: wp(4.5),
+        paddingHorizontal: wp(4),
     },
     loginFormBackground: {
         width: "100%",
@@ -141,15 +163,17 @@ const styles = StyleSheet.create({
     },
     titleNormal: {
         fontSize: wp(4),
+        marginTop: hp(4),
         fontFamily: "Montserrat-Medium",
     },
     buttonContainer: {
         flexDirection: 'row',
         justifyContent: "center",
+        marginTop:hp(4),
     },
     input: {
         height: hp(6.5),
-        marginVertical: hp(1.5),
+        marginTop: hp(2),
         paddingHorizontal: wp(4),
         borderRadius: 20,
         backgroundColor: "#626978ff",
@@ -157,13 +181,11 @@ const styles = StyleSheet.create({
         fontFamily: "Montserrat-Regular",
     },
     loginButton: {
-        marginTop: hp(4),
         paddingVertical: hp(2),
-        paddingHorizontal: wp(32.5),
-        borderRadius: 16,
+        paddingHorizontal: wp(22.5),
+        borderRadius: wp(4),
         alignSelf: "center",
         backgroundColor: "#2475EE",
-
     },
     BackButton: {
         flexDirection: "row",
@@ -171,14 +193,14 @@ const styles = StyleSheet.create({
         marginTop: hp(2),
         paddingVertical: hp(2),
         paddingHorizontal: wp(16),
-        borderRadius: 16,
+        borderRadius: wp(4),
         backgroundColor: "white",
         alignItems: "center",
         marginHorizontal: wp(3.75)
     },
     loginButtonText: {
         color: "white",
-        fontSize: wp(3.5),
+        fontSize: wp(3.75),
         fontFamily: "NataSans-Bold",
         textAlign: "center",
     },
@@ -191,6 +213,13 @@ const styles = StyleSheet.create({
         color: "white",
         textAlign: "center",
         marginBottom: hp(1.5),
+        fontSize: 15,
+        fontFamily: 'Montserrat-SemiBold'
+    },
+    successText: {
+        color: "#90EE90", // Light green for success
+        textAlign: "center",
+        marginBottom: 10,
         fontSize: 15,
         fontFamily: 'Montserrat-SemiBold'
     },
@@ -218,7 +247,7 @@ const styles = StyleSheet.create({
         right: wp(5),
     },
     copyrightContainer: {
-        marginVertical: hp(2),
+        marginVertical: hp(3),
         marginBottom: Platform.OS === "android" ? 10 : 20,
         alignItems: "center",
     },
@@ -240,4 +269,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default Login;
+export default ForgotPassword;

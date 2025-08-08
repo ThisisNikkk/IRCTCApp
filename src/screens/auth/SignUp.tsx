@@ -160,28 +160,33 @@ const styles = StyleSheet.create({
     loginButton: {
         marginTop: hp(4),
         paddingVertical: hp(2),
-        paddingHorizontal: wp(14),
+        paddingHorizontal: wp(23),
         borderRadius: 16,
         alignSelf: "center",
         backgroundColor: "#2475EE",
+
     },
     BackButton: {
+        flexDirection: "row",
+        justifyContent: 'center',
         marginTop: hp(2),
-        paddingVertical: hp(1.5),
-        paddingHorizontal: wp(10),
-        borderRadius: 30,
-        alignSelf: "center",
-        backgroundColor: "rgba(255, 255, 255, 1)",
+        paddingVertical: hp(2),
+        paddingHorizontal: wp(16.2),
+        borderRadius: 16,
+        backgroundColor: "white",
+        alignItems: "center",
+        marginHorizontal: wp(3.85)
     },
     loginButtonText: {
         color: "white",
+        fontSize: wp(3.5),
         fontFamily: "NataSans-Bold",
         textAlign: "center",
     },
     BackButtonText: {
-        color: "black",
+        color: "#000",
         fontFamily: "NataSans-Bold",
-        textAlign: "center",
+        fontSize: wp(3.5),
     },
     errorText: {
         color: "white",

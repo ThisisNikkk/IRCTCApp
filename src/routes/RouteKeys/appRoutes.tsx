@@ -5,6 +5,7 @@ const AppRoutes = {
     Welcome:"Welcome",
     SignUp:"SignUp",
     Login:"Login",
+    ForgotPassword:"ForgotPassword",
     Home:"Home"
 }
 
