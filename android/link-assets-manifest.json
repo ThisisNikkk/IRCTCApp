@@ -2,76 +2,112 @@
   "migIndex": 1,
   "data": [
     {
-      "path": "src/assets/font/Lato-Black.ttf",
-      "sha1": "b9c952639741f5b7479e1ff6d1561a3df7e8f83a"
+      "path": "src/assets/font/Montserrat-Black.ttf",
+      "sha1": "ea4feb16f3d8cb3f1cbc8e3a7af7388cc01ce32e"
     },
     {
-      "path": "src/assets/font/Lato-BlackItalic.ttf",
-      "sha1": "4bde1231ff7afccfdf4f77f086c0e9a93a4f3e46"
+      "path": "src/assets/font/Montserrat-BlackItalic.ttf",
+      "sha1": "d439bd54958ff80dc23d4d3edc5a5115a6e827a8"
     },
     {
-      "path": "src/assets/font/Lato-Bold.ttf",
-      "sha1": "6b2c7b124cbf0aaeba48d57fb0fa19f2c6c69683"
+      "path": "src/assets/font/Montserrat-Bold.ttf",
+      "sha1": "c7d907722af4fb845ab97d515bb414f29651f000"
     },
     {
-      "path": "src/assets/font/Lato-BoldItalic.ttf",
-      "sha1": "bf9e7d4a6185b53a256272869e66762c1e5d503b"
+      "path": "src/assets/font/Montserrat-BoldItalic.ttf",
+      "sha1": "eee7f440754eb6ecbfcc461e9af2536ed0286a7f"
     },
     {
-      "path": "src/assets/font/Lato-Hairline.ttf",
-      "sha1": "79c1dd6a9c740ef36272a9742504864a6f912be7"
+      "path": "src/assets/font/Montserrat-ExtraBold.ttf",
+      "sha1": "4a2cbee7a7ab79ab2cf0c120c962384dc240b237"
     },
     {
-      "path": "src/assets/font/Lato-HairlineItalic.ttf",
-      "sha1": "ea271649cc2f58a61fc819c9ca82eb8724717a2f"
+      "path": "src/assets/font/Montserrat-ExtraBoldItalic.ttf",
+      "sha1": "f6ab908d898677add7044582e5a3e961317fe75f"
     },
     {
-      "path": "src/assets/font/Lato-Heavy.ttf",
-      "sha1": "068af974d1346b61d9ee1e097374f2f3cac6c442"
+      "path": "src/assets/font/Montserrat-ExtraLight.ttf",
+      "sha1": "c198620afdbc8ebbb68ea2b71ffab9188037d602"
     },
     {
-      "path": "src/assets/font/Lato-HeavyItalic.ttf",
-      "sha1": "f2d4047e1f5efd405b850abe23ccfdc2ceb1b3f8"
+      "path": "src/assets/font/Montserrat-ExtraLightItalic.ttf",
+      "sha1": "a2fc69ceaf90f83fc899ee75190b3ef954e5e073"
     },
     {
-      "path": "src/assets/font/Lato-Italic.ttf",
-      "sha1": "63c5d4424bc3466477be05dc122799df7665e571"
+      "path": "src/assets/font/Montserrat-Italic.ttf",
+      "sha1": "763e9c22a750ff1241aacf1e0e4d3050827b9783"
     },
     {
-      "path": "src/assets/font/Lato-Light.ttf",
-      "sha1": "a405c8288a8a90881407f93b6ee02b29e26a8735"
+      "path": "src/assets/font/Montserrat-Light.ttf",
+      "sha1": "1db8878a7654208b6c55402f6ff717e03a312e1e"
     },
     {
-      "path": "src/assets/font/Lato-LightItalic.ttf",
-      "sha1": "f05f3b58c5abd991036a1b43bd601556244ffe9e"
+      "path": "src/assets/font/Montserrat-LightItalic.ttf",
+      "sha1": "91fcb7d72360f81be21a4b1fda01959d16179735"
     },
     {
-      "path": "src/assets/font/Lato-Medium.ttf",
-      "sha1": "c78e94b7cc0b782eef4f9f2be371c3cf9c3f6eaf"
+      "path": "src/assets/font/Montserrat-Medium.ttf",
+      "sha1": "4656e40419da86a5fec473ea8e7fc0efef183f05"
     },
     {
-      "path": "src/assets/font/Lato-MediumItalic.ttf",
-      "sha1": "df1a7160502d9e90c41b92b7243270a769904786"
+      "path": "src/assets/font/Montserrat-MediumItalic.ttf",
+      "sha1": "95bcdfd1606d7b1970a12399d23ddf8fbeeb490e"
     },
     {
-      "path": "src/assets/font/Lato-Regular.ttf",
-      "sha1": "f59f9e4f3cbee981a5e6f58a279f9b9613f22599"
+      "path": "src/assets/font/Montserrat-Regular.ttf",
+      "sha1": "1c8119b38eef1914a4fbd9f6cfdedf198445ab97"
     },
     {
-      "path": "src/assets/font/Lato-Semibold.ttf",
-      "sha1": "96569e2cfcc3a298bb1aea21103d0d1e3c7e2ed4"
+      "path": "src/assets/font/Montserrat-SemiBold.ttf",
+      "sha1": "d491c9d0af61faef59ca807737b560170f547f5b"
     },
     {
-      "path": "src/assets/font/Lato-SemiboldItalic.ttf",
-      "sha1": "8a34fbb379a096d4c5914a962a6f71e1721b40a7"
+      "path": "src/assets/font/Montserrat-SemiBoldItalic.ttf",
+      "sha1": "d5b90fca448ac51e9410d7c8de07eb64be27ed25"
     },
     {
-      "path": "src/assets/font/Lato-Thin.ttf",
-      "sha1": "dbe1f622faef3ea3f286d848da6b10f104405060"
+      "path": "src/assets/font/Montserrat-Thin.ttf",
+      "sha1": "447838642258b95e8a61df1770189f962cc0741b"
     },
     {
-      "path": "src/assets/font/Lato-ThinItalic.ttf",
-      "sha1": "8ce23025cf59e58b9bafdd8526d685d8347267c7"
+      "path": "src/assets/font/Montserrat-ThinItalic.ttf",
+      "sha1": "04f69417392da5f6f831fd89e6ff5698323fdecb"
+    },
+    {
+      "path": "src/assets/font/NataSans-Black.ttf",
+      "sha1": "5c5318d494fc27c7ad924c6f8a8e76d19d2e9e64"
+    },
+    {
+      "path": "src/assets/font/NataSans-Bold.ttf",
+      "sha1": "b8139d9b71d9076e4951a19b4756ce0222fdfe88"
+    },
+    {
+      "path": "src/assets/font/NataSans-ExtraBold.ttf",
+      "sha1": "1a65529e617dd1b6d2ab7fdd81cfb0401651590f"
+    },
+    {
+      "path": "src/assets/font/NataSans-ExtraLight.ttf",
+      "sha1": "adb0f92927576aa8d18f6883539ed40de0ed5c11"
+    },
+    {
+      "path": "src/assets/font/NataSans-Light.ttf",
+      "sha1": "b378c06bd940709b4a8e9cdceb2ff8f8916d9006"
+    },
+    {
+      "path": "src/assets/font/NataSans-Medium.ttf",
+      "sha1": "af57c7ccf8af20916872e162f9454d2fa6086689"
+    },
+    {
+      "path": "src/assets/font/NataSans-Regular.ttf",
+      "sha1": "3b2c5e3b8b469d158391d579b2bf9a7014d30f44"
+    },
+    {
+      "path": "src/assets/font/NataSans-SemiBold.ttf",
+      "sha1": "e95912ca9ce475026ddd434cf9adaa1964df46e6"
+    },
+    {
+      "path": "src/assets/font/NataSans-Thin.ttf",
+      "sha1": "9ad4747026f4b1334adce71aca2b97f3291f6149"
     }
   ]
 }

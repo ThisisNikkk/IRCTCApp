@@ -1,5 +1,5 @@
-import { useNavigation, useTheme } from "@react-navigation/native";
-import React, { useState, useEffect } from "react"; // Import useState
+import { useNavigation} from "@react-navigation/native";
+import React, { useState} from "react"; 
 import { View, StyleSheet, Text, Image, TouchableOpacity } from "react-native";
 import { useDispatch } from "react-redux";
 import { setAuth } from "../../redux/Reducers/userData";
@@ -32,7 +32,7 @@ const Welcome: React.FC = () => {
         <TouchableOpacity style={style.loginButton} onPress={() => dispatch(setAuth(true))}>
           <Text style={style.loginText}>Log in with IRCTC account</Text>
         </TouchableOpacity>
-        <Text style={style.subText}>Don’t have an account yet? <Text style={{ color: 'white', textDecorationLine: 'underline' }}>Sign up</Text></Text>
+        <Text style={style.subText}>Don’t have an account yet? <Text style={{ color: 'white', textDecorationLine: 'underline' }} onPress={()=> navigation.navigate(AppRoutes.SignUp)}>Sign up</Text></Text>
       </View>
     </View>
   );
@@ -75,11 +75,11 @@ const style = StyleSheet.create({
     alignSelf: "center",
     textAlign: "center",
     lineHeight:hp(5),
-    fontFamily: 'Lato-Medium',
+    fontFamily: 'NataSans-Medium',
   },
   subText: {
-    fontFamily: 'Lato-Regular',
-    fontSize: wp(4),
+    fontFamily: 'Montserrat-Regular',
+    fontSize: wp(3.5),
     color: '#ADADAD',
     marginVertical: hp(1.3),
   },
@@ -93,7 +93,7 @@ const style = StyleSheet.create({
     marginVertical: hp(0.6),
   },
   loginText: {
-    fontFamily: 'Lato-Bold',
+    fontFamily: 'NataSans-Bold',
     color: '#fff',
     fontSize: wp(4),
     alignSelf: 'center',

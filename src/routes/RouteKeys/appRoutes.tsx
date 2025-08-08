@@ -3,6 +3,7 @@ const AppRoutes = {
     NonAuthStack:"NonAuthStack",
     Splash:"Splash",
     Welcome:"Welcome",
+    SignUp:"SignUp",
     Home:"Home"
 }
 

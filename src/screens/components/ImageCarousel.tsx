@@ -12,11 +12,11 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ onIndexChange }) => {
     require('../../assets/Img/img1.png'),
     require('../../assets/Img/img2.png'),
     require('../../assets/Img/img3.png'),
-    require('../../assets/Img/img4.png'),
+    require('../../assets/Img/img4.jpg'),
     require('../../assets/Img/img5.png'),
     require('../../assets/Img/img6.png'),
     require('../../assets/Img/img7.png'),
-    require('../../assets/Img/img8.png'),
+    require('../../assets/Img/img8.jpg'),
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -25,7 +25,9 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ onIndexChange }) => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => {
         const nextIndex = (prevIndex + 1) % images.length;
-        onIndexChange(nextIndex); 
+        setTimeout(() => {
+          onIndexChange(nextIndex); 
+        }, 0);
         return nextIndex;
       });
     }, 3000);
